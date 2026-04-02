@@ -4,7 +4,7 @@ import { exec } from 'child_process';
 
 export function activate(context: vscode.ExtensionContext) {
     console.log('ERROU! extension activated');
-	const soundPath = context.asAbsolutePath('media/sounds/faustao-errou.wav');
+    const soundPath = context.asAbsolutePath('media/sounds/faustao-errou.wav');
     const executionHadOutput = new Map<vscode.TerminalShellExecution, boolean>();
 
     const startDisposable = vscode.window.onDidStartTerminalShellExecution(event => {
@@ -28,14 +28,14 @@ export function activate(context: vscode.ExtensionContext) {
                 return;
             }
 
-			playSound(soundPath);
+            playSound(soundPath);
 
             if (config.get('showPopup')) {
                 const duration = config.get<number>('popupDuration', 3000);
                 showNotification(`ERROU! Exit code: ${event.exitCode}`, duration);
-			}
-		}
-	});
+            }
+        }
+    });
 
     context.subscriptions.push(startDisposable, endDisposable);
 }
@@ -79,7 +79,7 @@ function hasVisibleUnicodeOutput(outputChunk: string) {
     const withoutAnsi = outputChunk.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, '');
     const withoutOsc = withoutAnsi.replace(/\x1B\][^\x07]*(\x07|\x1B\\)/g, '');
     const withoutControls = withoutOsc.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
-    
+
     return /\S/.test(withoutControls);
 }
 
