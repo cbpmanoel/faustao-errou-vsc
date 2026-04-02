@@ -2,6 +2,13 @@
 
 All notable changes to the "faustao-errou" extension will be documented in this file.
 
+## [1.0.2] - 2026-04-02
+
+### Changed
+- Documented terminal shell integration requirements in the README.
+- Clarified that Windows shell integration requires PowerShell 7+ (`pwsh`) or Git Bash.
+- Removed exit code `1` from the default ignored exit codes list, keeping only `130`.
+
 ## [1.0.1] - 2026-04-02
 
 ### Fixed
