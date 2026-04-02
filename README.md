@@ -20,6 +20,8 @@ This extension plays Faustão's iconic "ERROU!" sound when a terminal command fa
 
 - VS Code `1.110.0` or newer
 - Audio output available on your machine
+- Terminal shell integration enabled in VS Code (`Terminal > Integrated: Shell Integration: Enabled`)
+- On Windows, shell integration is supported with PowerShell 7+ (`pwsh`) and Git Bash (legacy Windows PowerShell 5.1 is not supported)
 
 Linux audio backends are tried in this order: `paplay`, `aplay`, `ffplay`.
 
@@ -28,10 +30,9 @@ Linux audio backends are tried in this order: `paplay`, `aplay`, `ffplay`.
 This extension contributes the following settings:
 
 - `faustaoErrou.showPopup` (boolean, default: `false`): Show a popup when a terminal command fails.
-- `faustaoErrou.ignoredExitCodes` (number[], default: `[1, 130]`): Exit codes that should not trigger the sound.
+- `faustaoErrou.ignoredExitCodes` (number[], default: `[130]`): Exit codes that should not trigger the sound.
 
 Default rationale:
-- `1`: Many CLI tools use this for expected outcomes in normal flows (for example, no match found or diff).
 - `130`: Common code for Ctrl+C interruption, which is usually user cancellation.
 
 Example configuration:
@@ -39,7 +40,7 @@ Example configuration:
 ```json
 {
 	"faustaoErrou.showPopup": true,
-	"faustaoErrou.ignoredExitCodes": [1, 130]
+	"faustaoErrou.ignoredExitCodes": [130]
 }
 ```
 
