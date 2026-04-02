@@ -96,7 +96,7 @@ function playSound(filePath: string) {
         command = `paplay "${escapedPath}" 2>/dev/null || aplay "${escapedPath}" 2>/dev/null || ffplay -nodisp -autoexit "${escapedPath}" 2>/dev/null || true`;
     }
 
-    exec(command, (err: any) => {
+    exec(command, (err: Error | null) => {
         if (err && !err.message.includes('not found')) {
             console.error('Failed to play sound', err);
         }
