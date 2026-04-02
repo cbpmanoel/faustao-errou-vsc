@@ -3,7 +3,7 @@
   "displayName": "ERROU! Terminal Error Sound",
   "description": "Plays Faustão's iconic 'ERROU!' sound when terminal commands fail",
   "version": "1.0.0",
-  "icon": "icon.png",
+  "icon": "media/images/icon.png",
   "publisher": "cbpmanoel",
   "repository": {
     "type": "git",
