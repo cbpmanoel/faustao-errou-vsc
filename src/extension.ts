@@ -26,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 function getIgnoredExitCodes(config: vscode.WorkspaceConfiguration) {
-    const configuredCodes = config.get<number[]>('ignoredExitCodes', [1, 130]);
+    const configuredCodes = config.get<number[]>('ignoredExitCodes', [130]);
     return configuredCodes.filter(code => Number.isInteger(code));
 }
 

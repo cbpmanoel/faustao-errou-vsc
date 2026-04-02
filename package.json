@@ -45,7 +45,6 @@
           "faustaoErrou.ignoredExitCodes": {
             "type": "array",
             "default": [
-              1,
               130
             ],
             "items": {
