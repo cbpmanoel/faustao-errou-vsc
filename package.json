@@ -4,7 +4,7 @@
   "description": "Plays Faustão's iconic 'ERROU!' sound when terminal commands fail",
   "version": "1.0.1",
   "icon": "media/images/icon.png",
-  "publisher": "cbpmanoel",
+  "publisher": "ovelhadev",
   "repository": {
     "type": "git",
     "url": "https://github.com/cbpmanoel/faustao-errou-vsc"
