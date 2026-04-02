@@ -1,0 +1,69 @@
+{
+  "name": "faustao-errou",
+  "displayName": "ERROU! Terminal Error Sound",
+  "description": "Plays Faustão's iconic 'ERROU!' sound when terminal commands fail",
+  "version": "1.0.0",
+  "icon": "icon.png",
+  "publisher": "cbpmanoel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cbpmanoel/faustao-errou-vsc"
+  },
+  "license": "MIT",
+  "keywords": [
+    "errou",
+    "sound",
+    "terminal",
+    "error",
+    "notification",
+    "faustão"
+  ],
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": [
+      {
+        "title": "ERROU! Terminal Error Sound",
+        "properties": {
+          "faustaoErrou.showPopup": {
+            "type": "boolean",
+            "default": false,
+            "description": "Show an error popup notification when a terminal command fails"
+          },
+          "faustaoErrou.ignoredExitCodes": {
+            "type": "array",
+            "default": [
+              1,
+              130
+            ],
+            "items": {
+              "type": "number"
+            },
+            "description": "Terminal exit codes to ignore and not play the sound for"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.15",
+    "@types/vscode": "^1.110.0",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  }
+}
