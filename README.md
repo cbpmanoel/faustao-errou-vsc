@@ -13,8 +13,9 @@ This extension plays Faustão's iconic "ERROU!" sound when a terminal command fa
 
 - Faustão yells on terminal command failures (non-zero exit code)
 - Works across Windows, macOS, and Linux
-- Optional popup message for failed commands
+- Optional popup message for failed commands with configurable duration
 - Configurable ignored exit codes
+- Optional output-aware triggering for selected exit codes
 
 ## Requirements
 
@@ -30,7 +31,9 @@ Linux audio backends are tried in this order: `paplay`, `aplay`, `ffplay`.
 This extension contributes the following settings:
 
 - `faustaoErrou.showPopup` (boolean, default: `false`): Show a popup when a terminal command fails.
+- `faustaoErrou.popupDuration` (number, default: `3000`): Duration in milliseconds for the popup notification.
 - `faustaoErrou.ignoredExitCodes` (number[], default: `[130]`): Exit codes that should not trigger the sound.
+- `faustaoErrou.onlyWhenOutputExistsExitCodes` (number[], default: `[]`): Exit codes that should only play the sound when the command produced terminal output. Useful to avoid playing the sound for commands that return non-zero exit codes on success (e.g. `grep` when it finds no matches).
 
 Default rationale:
 - `130`: Common code for Ctrl+C interruption, which is usually user cancellation.
@@ -40,7 +43,9 @@ Example configuration:
 ```json
 {
 	"faustaoErrou.showPopup": true,
-	"faustaoErrou.ignoredExitCodes": [130]
+	"faustaoErrou.popupDuration": 5000,
+	"faustaoErrou.ignoredExitCodes": [130],
+	"faustaoErrou.onlyWhenOutputExistsExitCodes": [1]
 }
 ```
 

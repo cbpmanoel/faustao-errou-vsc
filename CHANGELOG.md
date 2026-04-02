@@ -2,6 +2,20 @@
 
 All notable changes to the "faustao-errou" extension will be documented in this file.
 
+## [1.1.0] - 2026-04-02
+
+### Added
+- New configuration `faustaoErrou.popupDuration` to control notification display time in milliseconds when popups are enabled.
+- Custom notification rendering for popup messages to support configurable durations.
+- New configuration `faustaoErrou.onlyWhenOutputExistsExitCodes` to only play the sound for specific exit codes when the command produced terminal output. Useful to avoid false positives for commands that return non-zero exit codes on success (e.g. `grep` when no matches found).
+
+### Changed
+- Improved audio command path handling by escaping file paths across platforms.
+
+### Fixed
+- Updated sound playback error handling to use explicit `Error | null` typing for safer logging.
+- Corrected extension source indentation and formatting for readability and consistency.
+
 ## [1.0.2] - 2026-04-02
 
 ### Changed
