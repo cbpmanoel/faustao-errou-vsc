@@ -31,7 +31,8 @@ export function activate(context: vscode.ExtensionContext) {
 			playSound(soundPath);
 
             if (config.get('showPopup')) {
-				vscode.window.showErrorMessage('A terminal command failed with exit code ' + event.exitCode + '.');
+                const duration = config.get<number>('popupDuration', 3000);
+                showNotification(`ERROU! Exit code: ${event.exitCode}`, duration);
 			}
 		}
 	});
@@ -97,6 +98,27 @@ function playSound(filePath: string) {
             console.error('Failed to play sound', err);
         }
     });
+}
+
+function showNotification(message: string, duration: number) {
+    // Workaround to show a notification for a custom duration since VSCode's API doesn't support it natively
+    // Source: https://stackoverflow.com/a/78415993
+    vscode.window.withProgress(
+        { location: vscode.ProgressLocation.Notification },
+        async (progress) => {
+            const steps = 100;
+            const delay = duration / steps;
+
+            for (let i = 0; i <= steps; i++) {
+                await new Promise<void>((resolve) => {
+                    setTimeout(() => {
+                        progress.report({ increment: 1, message: message });
+                        resolve();
+                    }, delay);
+                });
+            }
+        }
+    );
 }
 
 export function deactivate() {}

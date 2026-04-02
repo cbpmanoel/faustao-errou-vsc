@@ -42,6 +42,11 @@
             "default": false,
             "description": "Show an error popup notification when a terminal command fails"
           },
+          "faustaoErrou.popupDuration": {
+            "type": "number",
+            "default": 3000,
+            "description": "Duration (in milliseconds) to show the error popup notification"
+          },
           "faustaoErrou.ignoredExitCodes": {
             "type": "array",
             "default": [
