@@ -51,6 +51,14 @@
               "type": "number"
             },
             "description": "Terminal exit codes to ignore and not play the sound for"
+          },
+          "faustaoErrou.onlyWhenOutputExistsExitCodes": {
+            "type": "array",
+            "default": [],
+            "items": {
+              "type": "number"
+            },
+            "description": "Exit codes that should only play the sound when the command produced terminal output. It's useful to avoid playing the sound for commands that returns non-zero exit codes on success (e.g. 'grep' when it finds no matches)."
           }
         }
       }
