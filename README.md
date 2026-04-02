@@ -11,7 +11,7 @@ This extension plays Faustão's iconic "ERROU!" sound when a terminal command fa
 
 ## Features
 
-- Fastão yells on terminal command failures (non-zero exit code)
+- Faustão yells on terminal command failures (non-zero exit code)
 - Works across Windows, macOS, and Linux
 - Optional popup message for failed commands
 - Configurable ignored exit codes

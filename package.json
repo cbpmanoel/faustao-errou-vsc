@@ -2,12 +2,16 @@
   "name": "faustao-errou",
   "displayName": "ERROU! Terminal Error Sound",
   "description": "Plays Faustão's iconic 'ERROU!' sound when terminal commands fail",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icon": "media/images/icon.png",
   "publisher": "cbpmanoel",
   "repository": {
     "type": "git",
     "url": "https://github.com/cbpmanoel/faustao-errou-vsc"
+  },
+  "homepage": "https://github.com/cbpmanoel/faustao-errou-vsc#readme",
+  "bugs": {
+    "url": "https://github.com/cbpmanoel/faustao-errou-vsc/issues"
   },
   "license": "MIT",
   "keywords": [
