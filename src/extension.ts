@@ -86,11 +86,14 @@ function hasVisibleUnicodeOutput(outputChunk: string) {
 function playSound(filePath: string) {
     let command = '';
     if (process.platform === 'win32') {
-        command = `powershell -c (New-Object Media.SoundPlayer "${filePath}").PlaySync()`;
+        const escapedPath = filePath.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+        command = `powershell -c (New-Object Media.SoundPlayer "${escapedPath}").PlaySync()`;
     } else if (process.platform === 'darwin') {
-        command = `afplay "${filePath}"`;
+        const escapedPath = filePath.replace(/"/g, '\\"');
+        command = `afplay "${escapedPath}"`;
     } else {
-        command = `paplay "${filePath}" 2>/dev/null || aplay "${filePath}" 2>/dev/null || ffplay -nodisp -autoexit "${filePath}" 2>/dev/null || true`;
+        const escapedPath = filePath.replace(/"/g, '\\"');
+        command = `paplay "${escapedPath}" 2>/dev/null || aplay "${escapedPath}" 2>/dev/null || ffplay -nodisp -autoexit "${escapedPath}" 2>/dev/null || true`;
     }
 
     exec(command, (err: any) => {
